@@ -58,17 +58,12 @@
 	},
 	"dependencies": {
 		"flowbite-svelte": "^0.44.24",
-<<<<<<< HEAD
 		"flowbite-svelte-icons": "^1.4.3",
 		"js-cookie": "^3.0.5",
 		"mysql": "^2.18.1",
 		"mysql2": "^3.9.3",
 		"svelte-french-toast": "^1.2.0",
 		"tailwind-merge": "^2.2.1"
-=======
-		"flowbite-svelte-icons": "^1.5.0",
-		"tailwind-merge": "^2.2.2"
->>>>>>> d7ab5888871177f2fcd6217a7385f520ee27534e
 	},
 	"keywords": [
 		"svelte",
