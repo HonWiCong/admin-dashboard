@@ -5,9 +5,9 @@
 	import { goto } from '$app/navigation';
 
 	// export let id: number = 0; // 1,
-	// export let name: string = ''; // "Neil Sims",
-	// export let avatar: string = ''; // "neil-sims.png",
-	// export let email: string = ''; // "neil.sims@flowbite.com",
+	export const name: string = ''; // "Neil Sims",
+	export const avatar: string = ''; // "neil-sims.png",
+	export const email: string = ''; // "neil.sims@flowbite.com",
 	// export let biography: string = ''; // "I love working with React and Flowbites to create efficient and user-friendly interfaces. In my spare time, I enjoys baking, hiking, and spending time with my family.",
 	// export let position: string = ''; // "Front-end developer",
 	// export let country: string = ''; // "United States",
