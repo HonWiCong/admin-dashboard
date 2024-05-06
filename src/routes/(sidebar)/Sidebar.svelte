@@ -18,14 +18,6 @@
 		GithubSolid,
 		LayersSolid,
 		LifeSaverSolid,
-<<<<<<< HEAD
-		MagicWandSolid,
-		PieChartSolid,
-=======
-		LockSolid,
-		WandMagicSparklesOutline,
-		ChartPieOutline,
->>>>>>> d7ab5888871177f2fcd6217a7385f520ee27534e
 		RectangleListSolid,
 	} from 'flowbite-svelte-icons';
 
@@ -53,59 +45,9 @@
 	});
 
 	let posts = [
-<<<<<<< HEAD
 		{ name: 'Dashboard', icon: PieChartSolid, href: '/dashboard' },
 		{ name: 'Setting', icon: CogOutline, href: '/crud/setting' },
 		{ name: 'Records', icon: CogOutline, href: '/crud/records' },
-=======
-		{ name: 'Dashboard', icon: ChartPieOutline, href: '/dashboard' },
-		{
-			name: 'Layouts',
-			icon: TableColumnSolid,
-			children: {
-				Stacked: '/layouts/stacked',
-				Sidebar: '/layouts/sidebar'
-			}
-		},
-		{
-			name: 'CRUD',
-			icon: RectangleListSolid,
-			children: {
-				Products: '/crud/products',
-				Users: '/crud/users'
-			}
-		},
-		{ name: 'Settings', icon: CogOutline, href: '/settings' },
-		{
-			name: 'Pages',
-			icon: FileChartBarSolid,
-			children: {
-				Pricing: '/pages/pricing',
-				Maintenance: '/errors/400',
-				'404 not found': '/errors/404',
-				'500 server error': '/errors/500'
-			}
-		},
-		{
-			name: 'Authenication',
-			icon: LockSolid,
-			children: {
-				'Sign in': '/authentication/sign-in',
-				'Sign up': '/authentication/sign-up',
-				'Forgot password': '/authentication/forgot-password',
-				'Reset password': '/authentication/reset-password',
-				'Profile lock': '/authentication/profile-lock'
-			}
-		},
-		{
-			name: 'Playground',
-			icon: WandMagicSparklesOutline,
-			children: {
-				Stacked: '/playground/stacked',
-				Sidebar: '/playground/sidebar'
-			}
-		}
->>>>>>> d7ab5888871177f2fcd6217a7385f520ee27534e
 	];
 
 	let links = [

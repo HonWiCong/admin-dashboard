@@ -57,6 +57,7 @@
 		"svelte": "^4.0.0"
 	},
 	"dependencies": {
+		"@sveltejs/adapter-node": "^5.0.1",
 		"flowbite-svelte": "^0.44.24",
 		"flowbite-svelte-icons": "^1.4.3",
 		"js-cookie": "^3.0.5",

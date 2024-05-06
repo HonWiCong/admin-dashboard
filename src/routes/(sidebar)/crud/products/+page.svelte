@@ -6,7 +6,6 @@
 	import { ExclamationCircleSolid, TrashBinSolid } from 'flowbite-svelte-icons';
 	import Products from '../../../data/product.json';
 	import Product from './Product.svelte';
-	import Delete from './Delete.svelte';
 	import type { ComponentType } from 'svelte';
 	import MetaTag from '../../../utils/MetaTag.svelte';
 
@@ -19,9 +18,9 @@
 	};
 
 	const path: string = '/crud/products';
-  const description: string = 'CRUD products examaple - Flowbite Svelte Admin Dashboard';
-  const title: string = 'Flowbite Svelte Admin Dashboard - CRUD Products';
-  const subtitle: string = 'CRUD Products';
+	const description: string = 'CRUD products examaple - Flowbite Svelte Admin Dashboard';
+	const title: string = 'Flowbite Svelte Admin Dashboard - CRUD Products';
+	const subtitle: string = 'CRUD Products';
 </script>
 
 <MetaTag {path} {description} {title} {subtitle} />

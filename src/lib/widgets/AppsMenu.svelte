@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { MegaMenu, ToolbarButton } from 'flowbite-svelte';
 	import {
 		ArchiveSolid,

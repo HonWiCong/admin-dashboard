@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { imagesPath } from '$lib/variables';
 	import { Avatar, Button, Card, Heading } from 'flowbite-svelte';
 	import Users from '../../routes/data/users.json';

@@ -49,35 +49,6 @@
 
 		<Toolbar embedded class="w-full py-4 text-gray-500  dark:text-gray-400">
 			<Input placeholder="Search for users" class="me-4 w-80 border xl:w-96" />
-<<<<<<< HEAD
-=======
-			<div class="border-l border-gray-100 pl-2 dark:border-gray-700">
-				<ToolbarButton
-					color="dark"
-					class="m-0 rounded p-1 hover:bg-gray-100 focus:ring-0 dark:hover:bg-gray-700"
-				>
-					<CogSolid size="lg" />
-				</ToolbarButton>
-				<ToolbarButton
-					color="dark"
-					class="m-0 rounded p-1 hover:bg-gray-100 focus:ring-0 dark:hover:bg-gray-700"
-				>
-					<TrashBinSolid size="lg" />
-				</ToolbarButton>
-				<ToolbarButton
-					color="dark"
-					class="m-0 rounded p-1 hover:bg-gray-100 focus:ring-0 dark:hover:bg-gray-700"
-				>
-					<ExclamationCircleSolid size="lg" />
-				</ToolbarButton>
-				<ToolbarButton
-					color="dark"
-					class="m-0 rounded p-1 hover:bg-gray-100 focus:ring-0 dark:hover:bg-gray-700"
-				>
-					<DotsVerticalOutline size="lg" />
-				</ToolbarButton>
-			</div>
->>>>>>> d7ab5888871177f2fcd6217a7385f520ee27534e
 
 			<div slot="end" class="flex items-center space-x-2">
 				<Button

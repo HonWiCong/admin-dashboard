@@ -6,10 +6,6 @@ const config = {
 		'./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}'
 	],
 
-	theme: {
-		extend: {}
-	},
-
 	plugins: [require('flowbite/plugin')],
 	darkMode: 'class',
 	theme: {

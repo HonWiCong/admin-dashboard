@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { A, Button } from 'flowbite-svelte';
 	import { DribbbleSolid, FacebookSolid, GithubSolid, TwitterSolid } from 'flowbite-svelte-icons';
 	import Card from '../widgets/Card.svelte';

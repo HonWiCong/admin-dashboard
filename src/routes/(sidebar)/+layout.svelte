@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import '../../app.pcss';
 	import Navbar from './Navbar.svelte';
 	import Sidebar from './Sidebar.svelte';

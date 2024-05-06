@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { Button } from 'flowbite-svelte';
 	import { DesktopPcOutline, MobilePhoneOutline } from 'flowbite-svelte-icons';
 	import Card from '../widgets/Card.svelte';

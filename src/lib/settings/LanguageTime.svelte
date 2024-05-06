@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { Button, Heading, Label, Select } from 'flowbite-svelte';
 	import Card from '../widgets/Card.svelte';
 	const languages = [

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import AppsMenu from '$lib/widgets/AppsMenu.svelte';
 	import UserMenu from '$lib/widgets/UserMenu.svelte';
 	import {
