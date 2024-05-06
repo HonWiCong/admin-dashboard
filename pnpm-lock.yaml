@@ -26,6 +26,9 @@ dependencies:
   svelte-french-toast:
     specifier: ^1.2.0
     version: 1.2.0(svelte@4.2.15)
+  svelte-kit-sst:
+    specifier: ^2.41.5
+    version: 2.41.5
   tailwind-merge:
     specifier: ^2.2.1
     version: 2.3.0
@@ -2861,6 +2864,10 @@ packages:
       svelte: ^3.19.0 || ^4.0.0
     dependencies:
       svelte: 4.2.15
+
+  /svelte-kit-sst@2.41.5:
+    resolution: {integrity: sha512-K1g7yztN+iDGPXznKBF2NQxX8U2PDnRkRJP0MtJLOkA/2HdIJDIRssN0MYzpSWDASzzKOHClPMWDIjK+zYMOAg==}
+    dev: false
 
   /svelte-lib-helpers@0.3.17:
     resolution: {integrity: sha512-VGQ60KLAhop+eVB97b8ftbi1E0+3dQ2q4zl/Bl/NUMoai7BNGO0Nr531hJKY/aAhMuAlG1fie8mih96k7n1Ebw==}
