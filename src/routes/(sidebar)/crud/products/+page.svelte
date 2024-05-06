@@ -102,9 +102,6 @@
 						<Button size="sm" class="gap-2 px-3" on:click={() => toggle(Product)}>
 							<EditOutline size="sm" /> Update
 						</Button>
-						<Button color="red" size="sm" class="gap-2 px-3" on:click={() => toggle(Delete)}>
-							<TrashBinSolid size="sm" /> Delete item
-						</Button>
 					</TableBodyCell>
 				</TableBodyRow>
 			{/each}
