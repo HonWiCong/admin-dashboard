@@ -1,6 +1,6 @@
 /** @type {import('./$types').PageLoad} */
 export function load() {
-	return {	
+	return {
 		all_time_series: [
 			{
 				name: '2019',
