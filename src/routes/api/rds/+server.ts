@@ -1,4 +1,4 @@
-import { database } from "../../../lib/rds";
+import { database } from "$lib/rds";
 import { json } from "@sveltejs/kit";
 
 export default async function GET() {

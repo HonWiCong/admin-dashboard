@@ -55,7 +55,7 @@
 					</TableBodyCell>
 					<TableBodyCell class="p-4">{record.carplate}</TableBodyCell>
 					<TableBodyCell class="p-4">{formatDate(record?.enter_at)}</TableBodyCell>
-					<TableBodyCell class="p-4">{formatDate(record?.leave_at)}</TableBodyCell>
+					<TableBodyCell class="p-4">{formatDate(record?.exit_at)}</TableBodyCell>
 					<TableBodyCell class="p-4">{record.duration}</TableBodyCell>
 				</TableBodyRow>
 			{/each}
