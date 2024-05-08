@@ -21,7 +21,7 @@
 	<Navbar bind:drawerHidden />
 </header>
 <div class="overflow-hidden lg:flex">
-	<Sidebar bind:drawerHidden />
+	<Sidebar bind:drawerHidden message={"12345567"} />
 	<div class="relative h-full w-full overflow-y-auto lg:ml-64">
 		<slot />
 	</div>

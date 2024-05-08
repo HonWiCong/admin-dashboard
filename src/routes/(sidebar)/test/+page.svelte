@@ -1,10 +1,15 @@
-<script lang="ts">
-	export let data;
-	console.log(data);
+<script>
+    async function fetch_user_with_id() {
+        const res = await fetch(`/api/users/${5}`);
+        const data = await res.json();
+        return data;
+    }
 </script>
 
-<h1>Hello</h1>
-<h1>{data.message}</h1>
-{#each data.body as item}
-	<li>{item.name} : {item.value}</li>
-{/each}
+{#await fetch_user_with_id()}
+    <p>Loading...</p>
+{:then user}
+    <h1>{user.body.id}</h1>
+{:catch error}
+    <p style="color: red">{error.message}</p>
+{/await}

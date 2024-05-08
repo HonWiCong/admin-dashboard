@@ -11,6 +11,7 @@
 	}
 
 	export let list: Setting[];
+	
 	const alwaysOpenGate = list.find((item) => item.name === 'always_open_gate');
 	const alwaysCloseGate = list.find((item) => item.name === 'always_close_gate');
 	let automation: boolean = localStorage.getItem("gate_automation") === 'true' ?? true;

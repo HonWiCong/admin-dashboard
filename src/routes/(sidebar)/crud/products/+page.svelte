@@ -24,7 +24,7 @@
 </script>
 
 <MetaTag {path} {description} {title} {subtitle} />
-
+<h1></h1>
 
 <main class="relative h-full w-full overflow-y-auto bg-white dark:bg-gray-800">
 	<div class="p-4">
@@ -63,7 +63,7 @@
 			>
 				<DotsVerticalOutline size="lg" />
 			</ToolbarButton>
-
+			
 			<div slot="end" class="space-x-2">
 				<Button class="whitespace-nowrap" on:click={() => toggle(Product)}>Add new product</Button>
 			</div>

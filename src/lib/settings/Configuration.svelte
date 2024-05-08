@@ -10,6 +10,7 @@
 
 	import { Button, Input } from 'flowbite-svelte';
 	import Card from '../widgets/Card.svelte';
+	import toast from 'svelte-french-toast';
 
 	const items = list.map((item: Setting) => {
 		let name = item.name.replace(/_/g, ' ');
@@ -40,8 +41,10 @@
 
 		if (response.ok) {
 			console.log('Settings updated');
+			// toast.success('Settings updated');
 		} else {
 			console.error('Settings update failed');
+			// toast.error('Settings update failed');
 		}
 	
 	}
