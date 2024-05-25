@@ -1,4 +1,8 @@
 <script lang="ts">
+	import { toast } from 'svelte-french-toast';
+	import { Button, Input } from 'flowbite-svelte';
+	import Card from '../widgets/Card.svelte';
+
 	type Setting = {
 		id: number;
 		name: string;
@@ -7,10 +11,7 @@
 
 	export let list: Setting[];
 	let isDataChanged: boolean = false;
-
-	import { Button, Input } from 'flowbite-svelte';
-	import Card from '../widgets/Card.svelte';
-	import toast from 'svelte-french-toast';
+	let loading: boolean = false;
 
 	const items = list.map((item: Setting) => {
 		let name = item.name.replace(/_/g, ' ');
@@ -25,32 +26,35 @@
 	});
 
 	async function update() {
+		loading = true;
 		// assign the new values to the original list
 		list.forEach((item: Setting) => {
 			item.value = Number(items.find((i: Setting) => i.id === item.id)?.value);
 		});
 		console.log(list);
-
-		const response = await fetch('/api/setting', {
+	
+		const responsePromise = fetch('/api/setting', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(list),
+		}).then(response => {
+			if (!response.ok) {
+				throw new Error('Settings update failed');
+			}
+			loading = false;
+			return response.json();
 		});
-
-		if (response.ok) {
-			console.log('Settings updated');
-			// toast.success('Settings updated');
-		} else {
-			console.error('Settings update failed');
-			// toast.error('Settings update failed');
-		}
 	
+		toast.promise(responsePromise, {
+			loading: 'Updating settings...',
+			success: 'Settings updated',
+			error: 'Settings update failed',
+		});
 	}
 
 	$: isDataChanged = list.some((item: Setting) => item.value !== items.find((i: Setting) => i.id === item.id)?.value);
-	$: console.log(items);
 </script>
 
 <form on:submit|preventDefault={update} method="post">
@@ -74,7 +78,13 @@
 				</li>
 			{/each}
 		</ul>
-		<Button type="submit" class="mt-2 w-fit" disabled={!isDataChanged}>Save / Update</Button>
+		<Button type="submit" class="mt-2 w-fit" disabled={!isDataChanged || loading}>
+			{#if loading}
+				Loading...
+			{:else}
+				Save / Update
+			{/if}
+		</Button>
 	</Card>
 </form>
 

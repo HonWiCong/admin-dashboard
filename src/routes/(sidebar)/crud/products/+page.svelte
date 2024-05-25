@@ -24,7 +24,6 @@
 </script>
 
 <MetaTag {path} {description} {title} {subtitle} />
-<h1></h1>
 
 <main class="relative h-full w-full overflow-y-auto bg-white dark:bg-gray-800">
 	<div class="p-4">

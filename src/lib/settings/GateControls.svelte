@@ -10,18 +10,19 @@
 		value: number;
 	}
 
+	let loading: boolean = false;
 	export let list: Setting[];
 	
-	const alwaysOpenGate = list.find((item) => item.name === 'always_open_gate');
-	const alwaysCloseGate = list.find((item) => item.name === 'always_close_gate');
+	const alwaysOpenGate = list.find((item) => item.name === 'public_always_open_gate');
+	const alwaysCloseGate = list.find((item) => item.name === 'public_always_close_gate');
 	let automation: boolean = localStorage.getItem("gate_automation") === 'true' ?? true;
-	const gateList = list.filter((item) => item.name === 'always_open_gate' || item.name === 'always_close_gate');
-
+	const gateList = list.filter((item) => item.name === 'public_always_open_gate' || item.name === 'public_always_close_gate');
+	
 	const items = gateList.map((item: Setting) => {
 		let subtitle = "";
-		if (item.name === 'always_open_gate') {
+		if (item.name === 'public_always_open_gate') {
 			subtitle = "The gate will always be open";
-		} else if(item.name === 'always_close_gate') {
+		} else if(item.name === 'public_always_close_gate') {
 			subtitle = "The gate will always be closed";
 		}
 
@@ -37,30 +38,45 @@
 	});
 
 	async function update() {
+		loading = true;
 		console.log(list);
-		const response = await fetch('/api/setting', {
+
+		const responsePromise = fetch('/api/setting', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(list),
+		}).then(response => {
+			if (!response.ok) {
+				throw new Error('Settings update failed');
+			}
+			loading = false;
+			return response.json();
 		});
 
-		if (response.ok) {
-			toast.success('Settings updated');
-		} else {
-			console.error('Settings update failed');
-		}
-	
+		toast.promise(responsePromise, {
+			loading: 'Updating settings...',
+			success: 'Settings updated',
+			error: 'Settings update failed',
+		});
 	}
 
 	function handleToggle(id: number) {
-		if (id === 1) {
+		if (id === alwaysOpenGate?.id) {
 			items[1].value = 0;
-			list[1].value = 0;
-		} else if (id === 2) {
+			for (let i = 0; i < list.length; i++) {
+				if (list[i].id === alwaysCloseGate?.id) {
+					list[i].value = 0;
+				}
+			}
+		} else if (id === alwaysCloseGate?.id) {
 			items[0].value = 0;
-			list[0].value = 0;
+			for (let i = 0; i < list.length; i++) {
+				if (list[i].id === alwaysOpenGate?.id) {
+					list[i].value = 0;
+				}
+			}
 		}
 	}
 
@@ -122,7 +138,13 @@
 				</li>
 			{/each}
 		</ul>
-		<Button type="submit" class="mt-2 w-fit">Save / Update</Button>
+		<Button disabled={loading} type="submit" class="mt-2 w-fit">
+			{#if !loading}
+				<span>Save / Update</span>
+			{:else}
+				<span>Saving...</span>
+			{/if}
+		</Button>
 	</Card>
 </form>
 

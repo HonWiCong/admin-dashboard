@@ -47,6 +47,7 @@
 
 	let posts = [
 		{ name: 'Dashboard', icon: CogOutline, href: '/dashboard' },
+		{ name: 'QR', icon: CogOutline, href: '/qr' },
 		{ name: 'Setting', icon: CogOutline, href: '/crud/setting' },
 		{ name: 'Records', icon: CogOutline, href: '/crud/records' },
 		{ name: 'Products', icon: CogOutline, href: '/crud/products' },
@@ -70,7 +71,6 @@
 	asideClass="fixed inset-0 z-30 flex-none h-full w-64 lg:h-auto border-e border-gray-200 dark:border-gray-600 lg:overflow-y-visible lg:pt-16 lg:block"
 >
 	<h4 class="sr-only">Main menu</h4>
-	<h4>{message}</h4>
 	<SidebarWrapper
 		divClass="overflow-y-auto px-3 pt-20 lg:pt-5 h-full bg-white scrolling-touch max-w-2xs lg:h-[calc(100vh-4rem)] lg:block dark:bg-gray-800 lg:me-0 lg:sticky top-2"
 	>

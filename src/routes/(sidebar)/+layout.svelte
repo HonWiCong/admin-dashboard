@@ -3,16 +3,6 @@
 	import Navbar from './Navbar.svelte';
 	import Sidebar from './Sidebar.svelte';
 	let drawerHidden = false;
-	import { goto } from '$app/navigation';
-	import { onMount } from 'svelte';
-
-	export let data;
-
-	onMount(() => {
-		if (!data.isLogin) {
-			goto('/login');
-		}
-	});
 </script>
 
 <header

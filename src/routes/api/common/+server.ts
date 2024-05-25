@@ -16,8 +16,6 @@ export async function GET() {
 	LIMIT 10;
 	`);
 
-	console.log(rows);
-
 	return json({
 		status: 200,
 		body: rows

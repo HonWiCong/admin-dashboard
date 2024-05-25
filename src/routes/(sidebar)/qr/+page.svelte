@@ -1,4 +1,7 @@
 <script lang="ts">
+	import QrCode from "svelte-qrcode"
+	import Card from '$lib/widgets/Card.svelte';
+
 	async function fetchControls() {
 		const response = await fetch('/api/setting')
 		return response.json()
@@ -17,9 +20,6 @@
 		Heading,
 	} from 'flowbite-svelte';
 
-	import User from './User.svelte';
-	import Delete from './Delete.svelte';
-	import MetaTag from '../../../utils/MetaTag.svelte';
 	import LightControl from '$lib/settings/LightControl.svelte';
 
 	let openUser: boolean = false;
@@ -32,46 +32,31 @@
 	const subtitle: string = 'CRUD Users';
 </script>
 
-<MetaTag {path} {description} {title} {subtitle} />
-
 <main class="relative min-h-screen h-full w-full overflow-y-auto bg-white dark:bg-gray-800">
 	<div class="p-4">
 		<Breadcrumb class="mb-5">
 			<BreadcrumbItem home>Home</BreadcrumbItem>
-			<BreadcrumbItem href="/crud/setting">Setting</BreadcrumbItem>
+			<BreadcrumbItem href="/crud/setting">QR</BreadcrumbItem>
 		</Breadcrumb>
 		<Heading tag="h1" class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">
-			Settings and Controls
+			QR Code
 		</Heading>
 	</div>
 
-	<div class="grid-layout">
-		<div class="p-4">
-			{#await fetchControls()}
-				<p>Loading...</p>
-			{:then data}
-				<GateControls list={data.body} />
-			{/await}
-		</div>
-		<div class="p-4">
-			{#await fetchConfiguration()}
-				<p>Loading...</p>
-			{:then data}
-				<Configuration list={data.body} />
-			{/await}
-		</div>
+	<div class="flex gap-3">
+		<Card title="Private" size="xs">
+			<QrCode value={window.location.origin + "/slot/private"} />
+		</Card>
+		<Card title="Public" size="xs">
+			<QrCode value={window.location.origin + "/slot/public"} />
+		</Card>
 	</div>
 </main>
-
-<!-- Modals -->
-
-<User bind:open={openUser} data={current_user} />
-<Delete bind:open={openDelete} />
 
 <style>
 	.grid-layout {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 		grid-gap: 1rem;
 	}
 </style>

@@ -5,6 +5,43 @@
 	import Cookies from 'js-cookie';
 	import { goto } from '$app/navigation';
 	import toast from 'svelte-french-toast';
+	import { session } from '$lib/session';
+	import { auth } from '$lib/firebase.client';
+	import {
+		signInWithPopup,
+		signInWithEmailAndPassword,
+		type UserCredential
+	} from 'firebase/auth';
+
+	let email: string = '';
+	let password: string = '';
+
+	async function loginWithMail() {
+		const loginPromise = signInWithEmailAndPassword(auth, email, password)
+			.then((result) => {
+				const { user }: UserCredential = result;
+				session.set({
+					loggedIn: true,
+					user: {
+						displayName: user?.displayName,
+						email: user?.email,
+						photoURL: user?.photoURL,
+						uid: user?.uid
+					}
+				});
+				goto('/');
+				return 'Login Successfully!';
+			})
+			.catch((error) => {
+				throw new Error('Invalid username or password');
+			});
+
+		toast.promise(loginPromise, {
+			loading: 'Logging in...',
+			success: "Login Successfully!",
+			error: (err) => err.message
+		});
+	}
 
 	let title = 'Sign in to platform';
 	let site = {
@@ -47,7 +84,7 @@
 			goto('/dashboard');
 			toast.success('Login Successfully!');
 		} else {
-			toast.error("Invalid username or password");
+			toast.error('Invalid username or password');
 		}
 	};
 
@@ -69,7 +106,7 @@
 	{loginTitle}
 	{registerLink}
 	{createAccountTitle}
-	on:submit={onSubmit}
+	on:submit={loginWithMail}
 >
 	<div>
 		<Label for="email" class="mb-2 dark:text-white">Your email</Label>
@@ -80,6 +117,7 @@
 			placeholder="name@company.com"
 			required
 			class="border outline-none dark:border-gray-600 dark:bg-gray-700"
+			bind:value={email}
 		/>
 	</div>
 	<div>
@@ -91,6 +129,7 @@
 			placeholder="••••••••"
 			required
 			class="border outline-none dark:border-gray-600 dark:bg-gray-700"
+			bind:value={password}
 		/>
 	</div>
 </SignIn>
