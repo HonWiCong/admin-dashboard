@@ -6,7 +6,7 @@
 	export let data: PageData;
 
 	async function fetchData() {
-		const res = await fetch('/api/public/slot');
+		const res = await fetch('/api/public/slots');
 		const data = await res.json();
 		console.log(data);
 		return data;
@@ -20,7 +20,24 @@
 
 		return () => clearInterval(interval);
 	});
+
+	function getStatusColor(status: number): string {
+		switch (status) {
+			case 0:
+				return 'green';
+			case 1:
+				return 'red';
+			case 2:
+				return 'blue';
+			default:
+				return 'gray';
+		}
+	}
 </script>
+
+<div class="p-4">
+	<h1 class="text-2xl font-semibold text-gray-900 dark:text-white">Public Parking</h1>
+</div>
 
 <div class="p-4">
 	<div class="grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -53,7 +70,7 @@
 
 <div class="p-4 grid grid-cols-5 gap-3">
 	{#each data.rows.slice(0, 5) as slot}
-		<Card class="h-[200px]" color={slot.status ? "green" : "red"}>
+		<Card class="h-[200px]" color={getStatusColor(slot.status)}>
 			<div class="grid place-items-center h-full">
 				<p>Slot {slot.id}</p>
 			</div>
@@ -69,8 +86,8 @@
 	<div class="bottom-road-line"></div>
 </div>
 <div class="p-4 grid grid-cols-5 gap-3">
-	{#each data.rows.slice(6, 11) as slot}
-		<Card class="h-[200px]" color={slot.status ? "green" : "red"}>
+	{#each data.rows.slice(5, 10) as slot}
+		<Card class="h-[200px]" color={getStatusColor(slot.status)}>
 			<div class="grid place-items-center h-full">
 				<p>Slot {slot.id}</p>
 			</div>

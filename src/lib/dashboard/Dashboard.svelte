@@ -10,7 +10,8 @@
 	import { onMount } from 'svelte';
 	import Change from './Change.svelte';
 	import DesktopPc from './DesktopPc.svelte';
-	import Traffic from './Traffic.svelte';
+	import TrafficPublic from './TrafficPublic.svelte';
+	import TrafficPrivate from './TrafficPrivate.svelte';
 	import Transactions from './Transactions.svelte';
 	import chart_options_func from '../../routes/(sidebar)/dashboard/chart_options';
 
@@ -141,7 +142,8 @@
 		</Card>
 	</div> -->
 	<div class="grid gap-4 xl:grid-cols-2 2xl:grid-cols-3">
-		<Traffic {dark} />
+		<TrafficPublic {dark} />
+		<TrafficPrivate {dark} />
 		<ChartWidget {chartOptions} title="629" subtitle="Customer this year" />
 	</div>
 	<div class="grid grid-cols-1 gap-4 xl:grid-cols-2">

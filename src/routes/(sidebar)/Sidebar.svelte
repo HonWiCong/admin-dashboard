@@ -49,9 +49,10 @@
 		{ name: 'Dashboard', icon: CogOutline, href: '/dashboard' },
 		{ name: 'QR', icon: CogOutline, href: '/qr' },
 		{ name: 'Setting', icon: CogOutline, href: '/crud/setting' },
-		{ name: 'Records', icon: CogOutline, href: '/crud/records' },
-		{ name: 'Products', icon: CogOutline, href: '/crud/products' },
-		{ name: 'Users', icon: CogOutline, href: '/crud/users' },
+		{ name: 'Gate', icon: CogOutline, href: '/crud/gate' },
+		{ name: 'Parking', icon: CogOutline, href: '/crud/parking' },
+		// { name: 'Products', icon: CogOutline, href: '/crud/products' },
+		// { name: 'Users', icon: CogOutline, href: '/crud/users' },
 	];
 
 	let links = [

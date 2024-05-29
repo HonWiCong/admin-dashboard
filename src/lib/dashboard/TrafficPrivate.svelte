@@ -14,8 +14,9 @@
 	let current: number;
 
 	async function fetchData() {
-		const response = await fetch('/api/carpark');
+		const response = await fetch('/api/carpark_private');
 		const data = await response.json();
+		console.log(data);
 		carParkData = data.body;
 		max = carParkData[0].value;
 		current = carParkData[1].value;
@@ -38,7 +39,7 @@
 		>
 			<div class="mb-4 w-full sm:mb-0">
 				<span class="text-2xl font-bold leading-none text-gray-900 dark:text-white sm:text-3xl"
-					>Carpark capacity</span
+					>Private Carpark capacity</span
 				>
 			</div>
 			<div>
