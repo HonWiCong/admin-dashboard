@@ -65,7 +65,7 @@
 		<TabItem label="Private Records">
 			<Table divClass="px-4">
 				<TableHead class="border-y border-gray-200 bg-gray-100 dark:border-gray-700">
-					{#each ['ID', 'User ID', 'Access Time', 'Exit Time', 'Duration (Minutes)'] as title}
+					{#each ['ID', 'User ID', 'Type', 'Access Time',] as title}
 						<TableHeadCell class="ps-4 font-normal">{title}</TableHeadCell>
 					{/each}
 				</TableHead>
@@ -80,9 +80,8 @@
 								</div>
 							</TableBodyCell>
 							<TableBodyCell class="p-4">{record.user_id}</TableBodyCell>
-							<TableBodyCell class="p-4">{formatDate(record?.access_time)}</TableBodyCell>
-							<TableBodyCell class="p-4">{formatDate(record?.exit_time)}</TableBodyCell>
-							<TableBodyCell class="p-4">{record.duration}</TableBodyCell>
+							<TableBodyCell class="p-4 capitalize">{record?.event_type}</TableBodyCell>
+							<TableBodyCell class="p-4">{formatDate(record?.timestamp)}</TableBodyCell>
 						</TableBodyRow>
 					{/each}
 				</TableBody>

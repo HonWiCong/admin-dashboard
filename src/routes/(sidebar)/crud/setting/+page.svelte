@@ -10,6 +10,7 @@
 	}
 
 	import GateControls from '$lib/settings/GateControls.svelte';
+	import PrivateGateControl from '$lib/settings/PrivateGateControl.svelte';
 	import Configuration from '$lib/settings/Configuration.svelte';
 	import {
 		Breadcrumb,
@@ -51,6 +52,13 @@
 				<p>Loading...</p>
 			{:then data}
 				<GateControls list={data.body} />
+			{/await}
+		</div>
+		<div class="p-4">
+			{#await fetchControls()}
+				<p>Loading...</p>
+			{:then data}
+				<PrivateGateControl list={data.body} />
 			{/await}
 		</div>
 		<div class="p-4">

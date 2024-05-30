@@ -39,7 +39,7 @@
 	</div>
 	<Table divClass="px-4">
 		<TableHead class="border-y border-gray-200 bg-gray-100 dark:border-gray-700">
-			{#each ['ID', 'Slot ID', 'Start Time', 'End Time', 'Status'] as title}
+			{#each ['Slot ID', 'Start Time', 'End Time', 'Status'] as title}
 				<TableHeadCell class="ps-4 font-normal">{title}</TableHeadCell>
 			{/each}
 		</TableHead>
@@ -53,7 +53,6 @@
 							</div>
 						</div>
 					</TableBodyCell>
-					<TableBodyCell class="p-4">{parking.slot_id}</TableBodyCell>
 					<TableBodyCell class="p-4">{formatDate(parking?.start_time)}</TableBodyCell>
 					<TableBodyCell class="p-4">{formatDate(parking?.end_time)}</TableBodyCell>
 					<TableBodyCell class="p-4">{parking.status}</TableBodyCell>

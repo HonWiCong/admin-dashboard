@@ -13,16 +13,16 @@
 	let loading: boolean = false;
 	export let list: Setting[];
 	
-	const alwaysOpenGate = list.find((item) => item.name === 'public_always_open_gate');
-	const alwaysCloseGate = list.find((item) => item.name === 'public_always_close_gate');
+	const alwaysOpenGate = list.find((item) => item.name === 'private_always_open_gate');
+	const alwaysCloseGate = list.find((item) => item.name === 'private_always_close_gate');
 	let automation: boolean = localStorage.getItem("gate_automation") === 'true' ?? true;
-	const gateList = list.filter((item) => item.name === 'public_always_open_gate' || item.name === 'public_always_close_gate');
+	const gateList = list.filter((item) => item.name === 'private_always_open_gate' || item.name === 'private_always_close_gate');
 	
 	const items = gateList.map((item: Setting) => {
 		let subtitle = "";
-		if (item.name === 'public_always_open_gate') {
+		if (item.name === 'private_always_open_gate') {
 			subtitle = "The gate will always be open";
-		} else if(item.name === 'public_always_close_gate') {
+		} else if(item.name === 'private_always_close_gate') {
 			subtitle = "The gate will always be closed";
 		}
 
@@ -94,7 +94,7 @@
 </script>
 
 <form on:submit|preventDefault={update} method="post">
-	<Card title="Public Gate Controls" size="md">
+	<Card title="Private Gate Controls" size="md">
 		<p class="text-sm font-normal text-gray-500 dark:text-gray-400">You can control the parking system preferences here</p>
 	
 		<ul class="divide-y divide-gray-200 dark:divide-gray-700">
