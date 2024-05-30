@@ -16,7 +16,7 @@
 	onMount(() => {
 		const interval = setInterval(async () => {
 			data = await fetchData();
-		}, 3000);
+		}, 1000);
 
 		return () => clearInterval(interval);
 	});
