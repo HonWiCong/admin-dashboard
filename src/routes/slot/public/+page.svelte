@@ -53,13 +53,13 @@
 			<div class="w-full">
 				<p>Available</p>
 				<p class="text-2xl font-bold leading-none text-gray-900 dark:text-white sm:text-3xl">
-					{data.rows.filter(slot => slot.status).length}
+					{data.rows.filter(slot => !slot.status).length}
 				</p>
 			</div>
 		</Card>
 		<Card horizontal class="items-center justify-between" size="xl" color="purple">
 			<div class="w-full">
-				<p>Percentage</p>
+				<p>Capacity Percentage</p>
 				<p class="text-2xl font-bold leading-none text-gray-900 dark:text-white sm:text-3xl">
 					{((data.rows.filter(slot => slot.status).length / data.rows.length) * 100).toFixed(2)}%
 				</p>

@@ -36,7 +36,7 @@
 	</div>
 	
 	<Tabs>
-		<TabItem label="Public Records">
+		<TabItem title="Public Records" open={true}>
 			<Table divClass="px-4">
 				<TableHead class="border-y border-gray-200 bg-gray-100 dark:border-gray-700">
 					{#each ['ID', 'Car Plate', 'Enter', 'Exit', 'Duration (Minutes)'] as title}
@@ -62,7 +62,7 @@
 				</TableBody>
 			</Table>
 		</TabItem>
-		<TabItem label="Private Records">
+		<TabItem title="Private Records">
 			<Table divClass="px-4">
 				<TableHead class="border-y border-gray-200 bg-gray-100 dark:border-gray-700">
 					{#each ['ID', 'User ID', 'Type', 'Access Time',] as title}
